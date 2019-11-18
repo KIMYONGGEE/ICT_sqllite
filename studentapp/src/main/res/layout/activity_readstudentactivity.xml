@@ -1,9 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Readstudentactivity">
+    android:paddingLeft="30dp"
+    android:paddingTop="20dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="20dp"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/read_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/read_student_image"
+        android:layout_gravity="center"
+        android:text="aaa"
+        android:textSize="25dp"
+        android:textStyle="bold"
+
+        />
+
+    <TextView
+        android:id="@+id/read_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        android:autoLink="phone"
+        android:textColor="#5E6D60"
+
+        android:text="0000-0000"
+
+        />
+
+    <TextView
+        android:id="@+id/read_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/read_student_image"
+        android:layout_gravity="center"
+        android:textColor="#334335"
+        android:autoLink="email"
+        android:textSize="20dp"
+        android:text="a@a.com" />
+
+    <ImageView
+        android:id="@+id/read_student_image"
+        android:layout_width="135dp"
+        android:layout_height="124dp"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:maxWidth="150px"
+        android:maxHeight="150px"
+
+        android:src="@drawable/prof"
+
+        />
+
+
+</LinearLayout>

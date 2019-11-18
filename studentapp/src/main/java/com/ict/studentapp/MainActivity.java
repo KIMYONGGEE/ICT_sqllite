@@ -1,8 +1,14 @@
 package com.ict.studentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -21,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ListView listView;
     ArrayList<studentvo> datas;
 
+    MyApplication myApplication;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +41,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addBtn.setOnClickListener(this);
         listView.setOnItemClickListener(this);
 
+        myApplication=(MyApplication)getApplicationContext();//퍼미션 어플리케이션
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)== PackageManager.PERMISSION_GRANTED){
+            myApplication.callPermission=true;
+        }
+        if(!myApplication.callPermission){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE},10);
+
+        }
+
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==1 && grantResults.length>0){
+            if(grantResults[0]==PackageManager.PERMISSION_GRANTED){//퍼미션 부여
+                myApplication.callPermission=true;
+            }
+        }
     }
 
     public void onClick(View v) {

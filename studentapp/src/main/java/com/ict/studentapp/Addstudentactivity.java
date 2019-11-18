@@ -29,8 +29,8 @@ public class Addstudentactivity extends AppCompatActivity implements View.OnClic
     }
     public void onClick(View v){
         String name=nameView.getText().toString();
-        String email=nameView.getText().toString();
-        String phone=nameView.getText().toString();
+        String email=emailView.getText().toString();
+        String phone=phoneView.getText().toString();
 
         if(name==null || name.equals("")) {
             //네임이 비어있거나 널이면
